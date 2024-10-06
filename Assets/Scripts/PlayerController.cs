@@ -14,12 +14,10 @@ public class PlayerController : MonoBehaviour
 
     public float mouseSensetive = 100f;
     private float xRotation;
-    public Transform _transform;
     public GameObject Player;
 
     private void Start()
     {
-        SetRotationOffset();
         Cursor.lockState = CursorLockMode.Locked;
     }
 
@@ -30,20 +28,16 @@ public class PlayerController : MonoBehaviour
         horizontalInput = Input.GetAxis(horizontalAxis);
         verticalInput = Input.GetAxis(verticalAxis);
         Player.transform.Translate(Vector3.forward * Time.deltaTime * speed * verticalInput);
-
+        Player.transform.Translate(Vector3.left * Time.deltaTime * speed * horizontalInput*-1);
 
         float mouseX = Input.GetAxis("Mouse X") * mouseSensetive * Time.deltaTime; //вверх вниз
         float mouseY = Input.GetAxis("Mouse Y") * mouseSensetive * Time.deltaTime;//влево вправо
 
         xRotation -= mouseY;
-        xRotation = Mathf.Clamp(xRotation, -45f, 45f);
+        xRotation = Mathf.Clamp(xRotation, -20f, 30f);
         transform.localRotation = Quaternion.Euler(xRotation, 0, 0);
 
         Player.transform.Rotate(Vector3.up*mouseX);
     }
 
-    private void SetRotationOffset()
-    {   
-        _transform = transform;
-    }
 }
