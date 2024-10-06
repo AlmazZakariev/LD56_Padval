@@ -7,10 +7,10 @@ public class DoorTrigger : MonoBehaviour
 {
     public AudioSource LaughSound;
     public bool IsClosed;
-    public AudioSource ClosedSound;
     public AudioSource OpenSound;
-    public AudioSource CloseSound;
+    public bool CanBeOpened = true;
 
+    public Animator Animator;
     // Start is called before the first frame update
     void Start()
     {
@@ -41,14 +41,17 @@ public class DoorTrigger : MonoBehaviour
 
         if (IsClosed)
         {
-            ClosedSound.Play();
-            LaughSound.Play();
+            if (CanBeOpened)
+            {
+                OpenSound.Play();
+                Animator.SetTrigger("Open");
+                IsClosed = false;
+                CanBeOpened = false;
+            }
+            else
+            {
+                LaughSound.Play();
+            } 
         }
-        else
-        {
-            OpenSound.Play();
-        }
-        
-        
     }
 }
