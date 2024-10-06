@@ -6,7 +6,7 @@ public class FollowCamera : MonoBehaviour
 {
     public GameObject player;
     //Vector3 offset = new Vector3(0, 4, -7);
-    public Vector3 offset;
+    //public Vector3 offset;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,7 +18,7 @@ public class FollowCamera : MonoBehaviour
 
     void LateUpdate()
     {
-        transform.position = player.transform.position + offset;
+        transform.position = player.transform.position /*+ offset*/;
         //if (tag == "FirstViewCamera")
         {
             transform.rotation = player.transform.rotation;
@@ -26,6 +26,6 @@ public class FollowCamera : MonoBehaviour
     }
     void SetOffet()
     {
-        offset = transform.position;
+       // offset = transform.position;
     }
 }
