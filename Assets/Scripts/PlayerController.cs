@@ -15,6 +15,7 @@ public class PlayerController : MonoBehaviour
     public float mouseSensetive = 100f;
     private float xRotation;
     public GameObject Player;
+ 
 
     private void Start()
     {
@@ -28,6 +29,7 @@ public class PlayerController : MonoBehaviour
         horizontalInput = Input.GetAxis(horizontalAxis);
         verticalInput = Input.GetAxis(verticalAxis);
         Player.transform.Translate(Vector3.forward * Time.deltaTime * speed * verticalInput);
+     
         Player.transform.Translate(Vector3.left * Time.deltaTime * speed * horizontalInput*-1);
 
         float mouseX = Input.GetAxis("Mouse X") * mouseSensetive * Time.deltaTime; //вверх вниз
