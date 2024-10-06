@@ -15,6 +15,8 @@ public class PlayerControllerFixed : MonoBehaviour
     private Rigidbody _rb;
 
     public Transform goCamera;
+    public float mouseX;
+    public float mouseY;
     private float xRotation;
 
     void Start()
@@ -56,8 +58,8 @@ public class PlayerControllerFixed : MonoBehaviour
 
     private void RotationLogic()
     {
-        float mouseX = Input.GetAxis("Mouse X") * MouseSensitivity * Time.fixedDeltaTime; // влево-вправо
-        float mouseY = Input.GetAxis("Mouse Y") * MouseSensitivity * Time.fixedDeltaTime; // вверх-вниз
+        mouseX = Input.GetAxis("Mouse X") * MouseSensitivity * Time.fixedDeltaTime; // влево-вправо
+        mouseY = Input.GetAxis("Mouse Y") * MouseSensitivity * Time.fixedDeltaTime; // вверх-вниз
 
         xRotation -= mouseY;
         xRotation = Mathf.Clamp(xRotation, -20f, 30f);
