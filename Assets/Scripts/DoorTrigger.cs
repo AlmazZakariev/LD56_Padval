@@ -14,7 +14,7 @@ public class DoorTrigger : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        Animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -44,7 +44,10 @@ public class DoorTrigger : MonoBehaviour
             if (CanBeOpened)
             {
                 OpenSound.Play();
-                Animator.SetTrigger("Open");
+                if (Animator != null)
+                {
+                    Animator.SetTrigger("Open");
+                }
                 IsClosed = false;
                 CanBeOpened = false;
             }
