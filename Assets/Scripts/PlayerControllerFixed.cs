@@ -81,7 +81,7 @@ public class PlayerControllerFixed : MonoBehaviour
         mouseY = Input.GetAxis("Mouse Y") * MouseSensitivity * Time.fixedDeltaTime; // вверх-вниз
 
         xRotation -= mouseY;
-        xRotation = Mathf.Clamp(xRotation, -20f, 30f);
+        xRotation = Mathf.Clamp(xRotation, -45f, 45f);
         goCamera.transform.localRotation = Quaternion.Euler(xRotation, 0, 0);
 
         transform.Rotate(Vector3.up * mouseX);

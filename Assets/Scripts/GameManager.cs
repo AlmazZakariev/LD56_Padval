@@ -7,9 +7,12 @@ public class GameManager : MonoBehaviour
     public AudioSource start;
     public AudioSource end;
     
-    public void changeSound()
+    public void ChangeSound()
     {
-        start.Stop();
+        //start.Stop();
+        //start.loop = false;
+
+        end.loop = true;
+        end.Play();
     }
-   
 }
