@@ -10,12 +10,13 @@ public class MessageTrigger : MonoBehaviour
     public GameObject SpawnPoint;
     public GameObject Enemy;
 
+
     private void OnTriggerEnter(Collider collision)
     {
         if (collision.CompareTag("Player")&& !triggerUsed)
         {
             triggerUsed = true;
-            Instantiate(Enemy, SpawnPoint.transform);
+            Instantiate(Enemy, SpawnPoint.transform.position, SpawnPoint.transform.rotation);
 
         }
     }
