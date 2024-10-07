@@ -22,6 +22,8 @@ public class RatAI : MonoBehaviour
         {
             player = GameObject.FindGameObjectWithTag("Player").transform;
         }
+
+        minDistance = Random.Range(4f, 6f);
     }
 
     void FixedUpdate()

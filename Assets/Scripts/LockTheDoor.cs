@@ -1,4 +1,5 @@
 using JetBrains.Annotations;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,6 +11,7 @@ public class LockTheDoor : MonoBehaviour
     public DoorTrigger DoorTriggerScript;
     private bool triggered = false;
     private GameManager managerScript;
+    public SpawnAIRats[] SpawnAIRatsScript;
 
     private void Start()
     {
@@ -36,16 +38,33 @@ public class LockTheDoor : MonoBehaviour
 
         triggered = true;
 
-        DoorAnimator.SetTrigger("Close");
-        CloseDoor.Play();
-        DoorTriggerScript.CanBeOpened = false;
-        DoorTriggerScript.IsClosed = true;
+        Invoke("closeDore", 1f);
 
         if (managerScript != null)
         {
             managerScript.ChangeSound();
         }
        
+        DoorTriggerScript.DoorColldier.SetActive(true);
 
+        Invoke("startRats", 10f);
+
+        
+    }
+
+    private void startRats()
+    {
+        foreach (var s in SpawnAIRatsScript)
+        {
+            s.Start = true;
+        }
+    }
+
+    private void closeDore()
+    {
+        DoorAnimator.SetTrigger("Close");
+        CloseDoor.Play();
+        DoorTriggerScript.CanBeOpened = false;
+        DoorTriggerScript.IsClosed = true;
     }
 }
