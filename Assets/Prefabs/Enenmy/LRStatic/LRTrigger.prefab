@@ -120,4 +120,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   right: 1
   SpawnPoint: {fileID: 0}
-  Enemy: {fileID: 2597338342423309154, guid: ee82c561d2cbd4940a256a0c5b391a68, type: 3}
+  Enemy: {fileID: 8004293504681018557, guid: 53800f96203d02e4fbafe63605e3d0e2, type: 3}
