@@ -11,6 +11,7 @@ public class RatAI : MonoBehaviour
     private Rigidbody rb;
     private Animator animator;
     public bool isRunning;
+    public AudioSource audioRunning;
 
     void Start()
     {
@@ -35,19 +36,31 @@ public class RatAI : MonoBehaviour
 
         float distanceToPlayer = Vector3.Distance(transform.position, player.position);
 
-        animator.SetBool("isRunning", distanceToPlayer > minDistance);
-        //animator.SetBool("isRunning", true);
-
         isRunning = distanceToPlayer > minDistance;
 
-
-        if (distanceToPlayer > minDistance)
+        animator.SetBool("isRunning", isRunning);
+        if (isRunning)
         {
             Vector3 targetPosition = transform.position + direction * moveSpeed * Time.fixedDeltaTime;
             rb.MovePosition(targetPosition);
 
             Quaternion targetRotation = Quaternion.LookRotation(direction);
             transform.rotation = Quaternion.Euler(0, targetRotation.eulerAngles.y, 0);
+        }
+
+        if (!isRunning)
+        {
+            audioRunning.loop = false;
+            audioRunning.Stop();
+        }
+        else
+        {
+            if (audioRunning.isPlaying)
+            {
+                return;
+            }
+            audioRunning.loop = true;
+            audioRunning.Play();
         }
     }
 }

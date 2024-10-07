@@ -18,15 +18,34 @@ public class PlayerControllerFixed : MonoBehaviour
     public float mouseX;
     public float mouseY;
     private float xRotation;
+    public GameObject flashLight;
+    public GameObject light;
+    public AudioSource lightAudio;
 
     void Start()
     {
         _rb = GetComponent<Rigidbody>();
         Cursor.lockState = CursorLockMode.Locked;
     }
+    private void Update()
+    {
+        if (Input.GetMouseButtonDown(1))
+        {
+            if (!flashLight.active)
+            {
+                return;
+            }
+            if (lightAudio.isPlaying)
+            {
+                return;
+            }
 
-    // обратите внимание что все действия с физикой 
-    // необходимо обрабатывать в FixedUpdate, а не в Update
+            lightAudio.Play();
+            light.SetActive(!light.active);
+        }
+    }
+
+
     void FixedUpdate()
 
     { 
@@ -67,36 +86,5 @@ public class PlayerControllerFixed : MonoBehaviour
 
         transform.Rotate(Vector3.up * mouseX);
     }
-
-
-    //private void MovementLogic()
-    //{
-    //    float moveHorizontal = Input.GetAxis("Horizontal");
-    //    float moveVertical = Input.GetAxis("Vertical");
-
-    //    Vector3 movement = new Vector3(moveHorizontal, 0.0f, moveVertical);
-
-    //    // Перемещаем игрока
-    //    _rb.MovePosition(transform.position + movement * Speed * Time.fixedDeltaTime);
-
-    //    // Вращаем игрока в направлении движения
-    //    if (movement != Vector3.zero)
-    //    {
-    //        Quaternion toRotation = Quaternion.LookRotation(movement, Vector3.up);
-    //        _rb.MoveRotation(Quaternion.RotateTowards(transform.rotation, toRotation, rotationSpeed * Time.fixedDeltaTime));
-    //    }
-    //}
-
-    //private void RotationLogic()
-    //{
-    //    float mouseX = Input.GetAxis("Mouse X") * MouseSensitivity * Time.fixedDeltaTime; // влево-вправо
-    //    float mouseY = Input.GetAxis("Mouse Y") * MouseSensitivity * Time.fixedDeltaTime; // вверх-вниз
-
-    //    xRotation -= mouseY;
-    //    xRotation = Mathf.Clamp(xRotation, -20f, 30f);
-    //    goCamera.transform.localRotation = Quaternion.Euler(xRotation, 0, 0);
-
-    //    transform.Rotate(Vector3.up * mouseX);
-    //}
 
 }
