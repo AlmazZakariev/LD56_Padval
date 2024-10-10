@@ -24,14 +24,14 @@ public class LockTheDoor : MonoBehaviour
         }
     }
 
-    private void OnTriggerStay(Collider collision)
+    private void OnTriggerEnter(Collider collision)
     {
-        if (!collision.CompareTag("Player"))
+        if (triggered)
         {
             return;
         }
-        
-        if (triggered)
+
+        if (!collision.CompareTag("Player"))
         {
             return;
         }
@@ -40,16 +40,11 @@ public class LockTheDoor : MonoBehaviour
 
         Invoke("closeDore", 1f);
 
-        if (managerScript != null)
-        {
-            managerScript.ChangeSound();
-        }
-       
+        managerScript.ChangeSound();
+
         DoorTriggerScript.DoorColldier.SetActive(true);
 
         Invoke("startRats", 10f);
-
-        
     }
 
     private void startRats()

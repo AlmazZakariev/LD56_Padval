@@ -5,7 +5,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public int maxEnemy;
-    public AudioSource start;
+    //public AudioSource start;
     public AudioSource end;
     public int Enemies;
     public GameObject UI;
@@ -25,7 +25,6 @@ public class GameManager : MonoBehaviour
     }
     public void ChangeSound()
     {
-        end.loop = true;
         end.Play();
     }
 
