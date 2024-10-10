@@ -9,14 +9,14 @@ public class RatAI : MonoBehaviour
     public float minDistance = 2f;
 
     private Rigidbody rb;
-    private Animator animator;
+    public Animator animator;
     public bool isRunning;
     public AudioSource audioRunning;
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        animator = GetComponent<Animator>();
+        //animator = GetComponent<Animator>();
 
         if (player == null)
         {
@@ -46,9 +46,11 @@ public class RatAI : MonoBehaviour
             Vector3 targetPosition = transform.position + direction * moveSpeed * Time.fixedDeltaTime;
             rb.MovePosition(targetPosition);
 
-            Quaternion targetRotation = Quaternion.LookRotation(direction);
-            transform.rotation = Quaternion.Euler(0, targetRotation.eulerAngles.y, 0);
+           
+          
         }
+        Quaternion targetRotation = Quaternion.LookRotation(direction);
+        transform.rotation = Quaternion.Euler(0, targetRotation.eulerAngles.y, 0);
 
         if (!isRunning)
         {

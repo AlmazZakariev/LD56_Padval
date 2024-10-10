@@ -105,6 +105,7 @@ MonoBehaviour:
   player: {fileID: 0}
   moveSpeed: 3
   minDistance: 5
+  animator: {fileID: 0}
   isRunning: 0
   audioRunning: {fileID: 2366540109511823233}
 --- !u!54 &7377088065236375108
