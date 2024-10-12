@@ -47,9 +47,8 @@ public class GameManager : MonoBehaviour
         return objectsWithTag.Length;
     }
 
-    public void EndGame()
-    {
-        Time.timeScale = 0;
-        Application.Quit();
-    }
+    //public void EndGame()
+    //{
+    //    Time.timeScale = 0;
+    //}
 }

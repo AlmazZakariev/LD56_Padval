@@ -564,11 +564,11 @@ MonoBehaviour:
   audioRunning: {fileID: 6380866849175668932}
   moveSpeed: 3
   followingDistMin: 4
-  followingDistMax: 7
+  followingDistMax: 6.5
   animationOffsetMin: 0
-  animationOffsetMax: 1.2
+  animationOffsetMax: 0.9
   waitingDistMin: 1
-  waitingDistMax: 2
+  waitingDistMax: 1.5
   distDownScaleDelta: 0.0018
 --- !u!54 &3982755061957207412
 Rigidbody:

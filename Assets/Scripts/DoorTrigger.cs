@@ -9,7 +9,7 @@ public class DoorTrigger : MonoBehaviour
     public bool IsClosed;
     public AudioSource OpenSound;
     public bool CanBeOpened = true;
-    //public GameObject DoorColldier;
+
 
     public Animator Animator;
     // Start is called before the first frame update
@@ -44,14 +44,14 @@ public class DoorTrigger : MonoBehaviour
         {
             if (CanBeOpened)
             {
-                OpenSound.Play();
+                
                 if (Animator != null)
                 {
                     Animator.SetTrigger("Open");
+                    OpenSound.Play();
                 }
                 IsClosed = false;
                 CanBeOpened = false;
-                //DoorColldier.SetActive(false);
             }
             else
             {

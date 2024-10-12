@@ -825,11 +825,11 @@ MonoBehaviour:
   audioRunning: {fileID: 1818066027519082998}
   moveSpeed: 3
   followingDistMin: 4
-  followingDistMax: 7
+  followingDistMax: 6.5
   animationOffsetMin: 0
-  animationOffsetMax: 1.2
+  animationOffsetMax: 0.9
   waitingDistMin: 1
-  waitingDistMax: 2
+  waitingDistMax: 1.5
   distDownScaleDelta: 0.0018
 --- !u!54 &5351709137097523640
 Rigidbody:
