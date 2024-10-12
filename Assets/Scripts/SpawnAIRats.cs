@@ -4,10 +4,8 @@ using UnityEngine;
 
 public class SpawnAIRats : MonoBehaviour
 {
-    private bool triggerUsed = false;
-    public bool right = true;
-    public GameObject SpawnPoint;
-    public GameObject Enemy;
+
+    public GameObject[] Enemy;
     public bool Start = false;
 
     // Update is called once per frame
@@ -16,28 +14,19 @@ public class SpawnAIRats : MonoBehaviour
         if (Start)
         {
             Start = false;
-            StartRandomInvoke();
+            StartRandomSpawn();
         }
     }
 
-    private void OnTriggerEnter(Collider collision)
-    {
-        if (collision.CompareTag("Player") && !triggerUsed)
-        {
-            triggerUsed = true;
-            
-
-        }
-    }
-
-    void StartRandomInvoke()
+    void StartRandomSpawn()
     {  
         float randomTime = Random.Range(2f, 5f);
-        InvokeRepeating("MyFunction", randomTime, randomTime);
+        InvokeRepeating("Spawn", randomTime, randomTime);
     }
 
-    void MyFunction()
+    void Spawn()
     {
-        Instantiate(Enemy, SpawnPoint.transform.position, SpawnPoint.transform.rotation);
+        var id = Random.Range(0, Enemy.Length);
+        Instantiate(Enemy[id], transform.position, transform.rotation);
     }
 }
