@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2059865352026653556
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1595765462126930334}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1595765462126930334
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2059865352026653556}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: -0.38649762, y: 0.09311628, z: -0.73416036}
+  m_LocalScale: {x: 0.99999976, y: 1, z: 0.99999976}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5310596525890645222}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5605845404291378721
 GameObject:
   m_ObjectHideFlags: 0
@@ -15,6 +46,7 @@ GameObject:
   - component: {fileID: 1123869683527168586}
   - component: {fileID: 7379984347323149264}
   - component: {fileID: 8592456253310664767}
+  - component: {fileID: 5277301676130521678}
   m_Layer: 0
   m_Name: DoorHolderUpd2
   m_TagString: Untagged
@@ -36,6 +68,7 @@ Transform:
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 6787277471188493874}
+  - {fileID: 1595765462126930334}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!95 &6759522391436124787
@@ -75,6 +108,7 @@ MonoBehaviour:
   IsClosed: 1
   OpenSound: {fileID: 1123869683527168586}
   CanBeOpened: 1
+  DoorColldier: {fileID: 0}
   Animator: {fileID: 6759522391436124787}
 --- !u!82 &1393631028612304618
 AudioSource:
@@ -287,8 +321,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 2.148076, z: 1.1290195}
-  m_Center: {x: 9.361662e-16, y: -0.0355103, z: -0.5658767}
+  m_Size: {x: 1.177383, y: 2.148076, z: 1.1290195}
+  m_Center: {x: -0.016961545, y: -0.0355103, z: -0.5658767}
 --- !u!82 &8592456253310664767
 AudioSource:
   m_ObjectHideFlags: 0
@@ -385,6 +419,27 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!65 &5277301676130521678
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5605845404291378721}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.16589348, y: 2.1280017, z: 1.1262538}
+  m_Center: {x: 0.009050846, y: -0.02707076, z: -0.5806775}
 --- !u!1001 &4756593688954280447
 PrefabInstance:
   m_ObjectHideFlags: 0

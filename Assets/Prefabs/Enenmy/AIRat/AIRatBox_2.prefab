@@ -830,6 +830,7 @@ MonoBehaviour:
   animationOffsetMax: 1.2
   waitingDistMin: 1
   waitingDistMax: 2
+  distDownScaleDelta: 0.0018
 --- !u!54 &5351709137097523640
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -876,8 +877,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1.4438678, y: 1.0157222, z: 3.4310777}
-  m_Center: {x: 0.092724234, y: 0.007860759, z: -1.9462148}
+  m_Size: {x: 1.670982, y: 1.0157222, z: 3.4310777}
+  m_Center: {x: -0.02083222, y: 0.007860759, z: -1.9462148}
 --- !u!1 &3760317222759622336
 GameObject:
   m_ObjectHideFlags: 0

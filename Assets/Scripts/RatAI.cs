@@ -1,3 +1,4 @@
+using InternalRealtimeCSG;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -7,6 +8,7 @@ public class RatAI : MonoBehaviour
 {
     private Transform player;
     private Rigidbody rb;
+    private GameManager managerScript;
 
     public Animator animator;
     public AudioSource audioRunning;
@@ -16,6 +18,7 @@ public class RatAI : MonoBehaviour
     private bool isRunning;
     private bool waiting = false;
     private float waitingDist;
+    private bool ending = false;
 
     public float moveSpeed = 3f;
     public float followingDistMin = 4;
@@ -26,6 +29,8 @@ public class RatAI : MonoBehaviour
 
     public float waitingDistMin = 1;
     public float waitingDistMax = 2;
+
+    public float distDownScaleDelta = 0.01f;
 
     void Start()
     {
@@ -38,7 +43,13 @@ public class RatAI : MonoBehaviour
         {
             player = GameObject.FindGameObjectWithTag("Player").transform;
         }
-        
+
+        GameObject manager = GameObject.Find("gamemanager");
+        if (manager != null)
+        {
+            managerScript = manager.GetComponent<GameManager>();
+        }
+
         minDistance = (float)(followingDistMin + (followingDistMax-followingDistMin) * random.NextDouble());
         waitingDist = (float)(waitingDistMin + (waitingDistMax - waitingDistMin) * random.NextDouble());
     }
@@ -48,6 +59,15 @@ public class RatAI : MonoBehaviour
         if (player == null)
         {
             return;
+        }
+
+        if (!ending)
+        {
+            ending = managerScript.needReduceDist;
+        }
+        else if (ending)
+        {
+            minDistance -= distDownScaleDelta;
         }
 
         Vector3 direction = player.position - transform.position;

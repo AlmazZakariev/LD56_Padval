@@ -4,23 +4,35 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    public int maxEnemy;
-    //public AudioSource start;
+    public bool needReduceDist = false;
     public AudioSource end;
-    public int Enemies;
     public GameObject UI;
+
     private bool ended = false;
+
+    public int maxEnemy;
+    public int enemiesToReduceDist = 20;
+    public int Enemies;
+    public float endUITime = 7f;
+
     public void Update()
     {
         if (ended)
         {
             return;
         }
-        if (CountObjectsWithTag("Enemy") >= maxEnemy)
+
+        var enemiesCount = (CountObjectsWithTag("Enemy"));
+
+        if (enemiesCount >= maxEnemy)
         {
             ended = true;
             UI.SetActive(true);
-            Invoke("EndGame", 3f);
+            Invoke("EndGame", endUITime);
+        }
+        if (enemiesCount >= enemiesToReduceDist)
+        {
+            needReduceDist = true;
         }
     }
     public void ChangeSound()

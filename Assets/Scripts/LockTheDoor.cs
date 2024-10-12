@@ -42,7 +42,7 @@ public class LockTheDoor : MonoBehaviour
 
         managerScript.ChangeSound();
 
-        DoorTriggerScript.DoorColldier.SetActive(true);
+        
 
         Invoke("startRats", 10f);
     }

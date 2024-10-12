@@ -47,12 +47,11 @@ public class PlayerControllerFixed : MonoBehaviour
 
 
     void FixedUpdate()
-
     { 
         RotationLogic();
         MovementLogic();
-  
     }
+
     private void MovementLogic()
     {
         float moveHorizontal = Input.GetAxis("Horizontal");
@@ -73,6 +72,9 @@ public class PlayerControllerFixed : MonoBehaviour
 
         // Перемещаем игрока
         _rb.MovePosition(transform.position + movement * Speed* Time.fixedDeltaTime);
+        
+        //Фикс кручения
+        _rb.angularVelocity = Vector3.zero;
     }
 
     private void RotationLogic()
